@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Language Phrasing App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    select, button {
+      padding: 8px;
+      margin: 5px 0;
+      width: 100%;
+    }
+
+    .phrase {
+      background: white;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .phrase:hover {
+      background: #eaeaea;
+    }
+
+    .details {
+      background: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 15px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Language Phrasing App</h1>
+
+<label for="category">Choose a category:</label>
+<select id="category" onchange="loadPhrases()">
+  <option value="Greetings">Greetings</option>
+  <option value="Travel">Travel</option>
+</select>
+
+<div id="phraseList"></div>
+
+<div class="details" id="details">
+  <h3 id="original"></h3>
+  <p id="translation"></p>
+  <button onclick="speak()">🔊 Pronounce</button>
+</div>
+
+<script>
+const phrases = [
+  {
+    category: "Greetings",
+    original: "Good morning",
+    translation: "Buenos días",
+    language: "es-ES"
+  },
+  {
+    category: "Greetings",
+    original: "How are you?",
+    translation: "¿Cómo estás?",
+    language: "es-ES"
+  },
+  {
+    category: "Travel",
+    original: "Where is the bathroom?",
+    translation: "¿Dónde está el baño?",
+    language: "es-ES"
+  },
+  {
+    category: "Travel",
+    original: "How much does it cost?",
+    translation: "¿Cuánto cuesta?",
+    language: "es-ES"
+  }
+];
+
+let selectedPhrase = null;
+
+function loadPhrases() {
+  const category = document.getElementById("category").value;
+  const list = document.getElementById("phraseList");
+  list.innerHTML = "";
+
+  phrases
+    .filter(p => p.category === category)
+    .forEach(p => {
+      const div = document.createElement("div");
+      div.className = "phrase";
+      div.textContent = `${p.original} → ${p.translation}`;
+      div.onclick = () => showDetails(p);
+      list.appendChild(div);
+    });
+}
+
+function showDetails(phrase) {
+  selectedPhrase = phrase;
+  document.getElementById("original").textContent = phrase.original;
+  document.getElementById("translation").textContent = phrase.translation;
+  document.getElementById("details").style.display = "block";
+}
+
+function speak() {
+  if (!selectedPhrase) return;
+
+  const utterance = new SpeechSynthesisUtterance(
+    selectedPhrase.translation
+  );
+  utterance.lang = selectedPhrase.language;
+  speechSynthesis.speak(utterance);
+}
+
+// Load initial phrases
+loadPhrases();
+</script>
+
+</body>
+</html>
