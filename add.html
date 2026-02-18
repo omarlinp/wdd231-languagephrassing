@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Add Phrase</title>
+</head>
+<body>
+
+<div class="app-container">
+    <header>
+        <h1>Add a New Phrase</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="add.html">Phrases</a>
+            <a href="favorites.html">Favorites</a>
+            <a href="details.html">Details</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+    </header>
+<main>
+    <form id="addPhraseForm">
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+            <option value="">Select a category</option>
+            <option value="Greetings">Greetings</option>
+            <option value="Travel">Travel</option>
+        </select>
+
+        <label for="original">Original Phrase:</label>
+        <input type="text" id="original" name="original" required>
+
+        <label for="translation">Translation:</label>
+        <input type="text" id="translation" name="translation" required>
+
+        <button type="submit">Add Phrase</button>
+    </form>
+</main>
+<footer>
+    <p>Language Phrasing App</p>
+</footer>
+</div>
+    
+</body>
+</html>
