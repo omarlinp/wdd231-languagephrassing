@@ -22,98 +22,43 @@
 </nav>
 </header>
 <main>
+<div class="filters">
+  <div class="filter">
 <label for="category">Choose a category:</label>
 <select id="category" onchange="loadPhrases()">
   <option value="Greetings">Greetings</option>
   <option value="Travel">Travel</option>
+  <option value="Food">Food</option>
+  <option value="Emergency">Emergency</option>
 </select>
+</div>
 
+<div class="filter">
 <label for="language">Choose a language:</label>
 <select id="language">
   <option value="es-ES">Spanish</option>
   <option value="fr-FR">French</option>
   <option value="de-DE">German</option>
 </select>
+</div>
+
+</div>
 
 <div id="phraseList"></div>
 
 <div class="details" id="details">
-  <h3 id="original"></h3>
-  <p id="translation"></p>
+  <h3 id="original">Phrase</h3>
+  <p id="translation">Translation</p>
   <button onclick="speak()" aria-label="Play pronunciation">🔊 Pronounce</button>
+  <button onclick="addToFavorites(selectedPhrase)" aria-label="Add to favorites">⭐ Add to Favorites</button>
 </div>
 </main>
 <footer>
   <p>Language Phrasing App</p>
 </footer>
 </div>
-<script>
-const phrases = [
-  {
-    category: "Greetings",
-    original: "Good morning",
-    translation: "Buenos días",
-    language: "es-ES"
-  },
-  {
-    category: "Greetings",
-    original: "How are you?",
-    translation: "¿Cómo estás?",
-    language: "es-ES"
-  },
-  {
-    category: "Travel",
-    original: "Where is the bathroom?",
-    translation: "¿Dónde está el baño?",
-    language: "es-ES"
-  },
-  {
-    category: "Travel",
-    original: "How much does it cost?",
-    translation: "¿Cuánto cuesta?",
-    language: "es-ES"
-  }
-];
+<script type="module" src="javascript/index.js">
 
-let selectedPhrase = null;
-
-function loadPhrases() {
-  const category = document.getElementById("category").value;
-  const list = document.getElementById("phraseList");
-  list.innerHTML = "";
-
-  phrases
-    .filter(p => p.category === category)
-    .forEach(p => {
-      const div = document.createElement("div");
-      div.className = "phrase";
-      div.textContent = `${p.original} → ${p.translation}`;
-      div.onclick = () => showDetails(p);
-      list.appendChild(div);
-    });
-}
-
-function showDetails(phrase) {
-  selectedPhrase = phrase;
-  document.getElementById("original").textContent = phrase.original;
-  document.getElementById("translation").textContent = phrase.translation;
-  document.getElementById("details").style.display = "block";
-}
-
-function speak() {
-  if (!selectedPhrase) return;
-
-  const selectedLanguage = document.getElementById("language").value;
-
-  const utterance = new SpeechSynthesisUtterance(
-    selectedPhrase.translation
-  );
-  utterance.lang = selectedLanguage;
-  speechSynthesis.speak(utterance);
-}
-
-// Load initial phrases
-loadPhrases();
 </script>
 
 </body>

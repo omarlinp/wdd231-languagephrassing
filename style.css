@@ -188,3 +188,53 @@ footer {
     max-width: 100%;
   }
 }
+
+
+/* Favorites Page Styling */
+#favoritesList {
+  margin-top: 20px;
+}
+
+#favoritesList .phrase {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f4f9ff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border-left: 5px solid #0077ff;
+  transition: 0.25s ease;
+}
+
+#favoritesList .phrase:hover {
+  background: #e0f0ff;
+  transform: translateX(3px);
+}
+
+#favoritesList .remove-btn {
+  background: #C1272D;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 0.9rem;
+}
+
+#favoritesList .remove-btn:hover {
+  background: #9e1f26;
+}
+
+/* Make the remove button responsive on small screens */
+@media (max-width: 768px) {
+  #favoritesList .phrase {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #favoritesList .remove-btn {
+    margin-top: 10px;
+  }
+}

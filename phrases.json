@@ -1,0 +1,51 @@
+[
+    {
+        "id":1,
+        "category":"Greetings",
+        "original":"Good morning",
+        "translation":"Buenos días",
+        "language":"es-ES"
+    },
+    {
+        "id":2,
+        "category":"Greetings",
+        "original":"How are you?",
+        "translation":"¿Cómo estás?",
+        "language":"es-ES"
+    },
+    {
+        "id":3,
+        "category":"Travel",
+        "original":"Where is the bathroom?",
+        "translation":"¿Dónde está el baño?",
+        "language":"es-ES"
+    },
+    {
+        "id":4,
+        "category":"Travel",
+        "original":"How much does it cost?",
+        "translation":"¿Cuánto cuesta?",
+        "language":"es-ES"
+    },
+    {
+        "id":5,
+        "category":"Food",
+        "original":"I am hungry",
+        "translation":"Tengo hambre",
+        "language":"es-ES"
+    },
+    {
+        "id":6,
+        "category":"Emergency",
+        "original":"Help!",
+        "translation":"¡Ayuda!",
+        "language":"es-ES"
+    },
+    {
+        "id":7,
+        "category":"Emergency",
+        "original":"Call the police",
+        "translation":"Llama a la policía",
+        "language":"es-ES"
+    }
+]

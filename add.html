@@ -22,19 +22,31 @@
     </header>
 <main>
     <form id="addPhraseForm">
-        <label for="category">Category:</label>
-        <select id="category" name="category" required>
-            <option value="">Select a category</option>
-            <option value="Greetings">Greetings</option>
-            <option value="Travel">Travel</option>
-        </select>
-
-        <label for="original">Original Phrase:</label>
-        <input type="text" id="original" name="original" required>
-
-        <label for="translation">Translation:</label>
-        <input type="text" id="translation" name="translation" required>
-
+        <div class="control-group">
+            <label for="original">Original Phrase:</label>
+            <input type="text" id="original" required>
+        </div>
+        <div class="control-group">
+            <label for="translation">Translation:</label>
+            <input type="text" id="translation" required>
+        </div>
+        <div class="control-group">
+            <label for="category">Category:</label>
+            <select id="category">
+                <option value="Greetings">Greetings</option>
+                <option value="Travel">Travel</option>
+                <option value="Food">Food</option>
+                <option value="Shopping">Shopping</option>
+            </select>
+        </div>
+        <div class="control-group">
+            <label for="language">Language (for pronunciation):</label>
+            <select id="language">
+                <option value="es-ES">Spanish</option>
+                <option value="fr-FR">French</option>
+                <option value="de-DE">German</option>
+            </select>
+        </div>
         <button type="submit">Add Phrase</button>
     </form>
 </main>
@@ -42,6 +54,6 @@
     <p>Language Phrasing App</p>
 </footer>
 </div>
-    
+<script type="module" src="javascript/add.js"></script>
 </body>
 </html>
