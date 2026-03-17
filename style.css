@@ -4,18 +4,42 @@
   margin: 0;
   padding: 0;
 }
+/*variables*/
+/* Define Variables */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --header-bg: #0077ff;
+  --card-bg: #f4f9ff;
+  --card-hover: #e0f0ff;
+  --footer-bg: #222222;
+  --border-color: #cccccc;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #f0f0f0;
+  --header-bg: #002d5f; /* Darker Blue */
+  --card-bg: #1e1e1e;
+  --card-hover: #2c2c2c;
+  --footer-bg: #000000;
+  --border-color: #444444;
+}
+
 
 /* Body */
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
   min-height: 100vh;
-  color: #333;
+  background-color: var(--bg-color); /* Added this */
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
 /* Header */
 header {
-  background: #0077ff;
+  background: var(--header-bg);
   color: white;
   padding: 25px 10%;
 }
@@ -53,13 +77,15 @@ nav .active {
 /* Main Content */
 main {
   padding: 40px 10%;
-  background: white;
+  background: var(--bg-color);
   min-height: 70vh;
 }
 
 /* Controls */
 .control-group {
   margin-bottom: 25px;
+  display: grid;
+  grid-template-columns: 150px 1fr;
 }
 
 label {
@@ -67,12 +93,14 @@ label {
 }
 
 select, input, textarea {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
   width: 100%;
   max-width: 300px;
   padding: 10px;
   margin-top: 6px;
   border-radius: 6px;
-  border: 1px solid #ccc;
   font-size: 1rem;
 }
 
@@ -88,7 +116,7 @@ select, input, textarea {
 }
 
 .phrase:hover {
-  background: #e0f0ff;
+  background: var(--card-hover);
   transform: translateX(5px);
 }
 
@@ -129,6 +157,10 @@ footer {
   color: white;
   text-align: center;
   padding: 20px;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+
 }
 
 /* Animation */
@@ -237,4 +269,14 @@ footer {
   #favoritesList .remove-btn {
     margin-top: 10px;
   }
+}
+.filters{
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+.phrase, .profile-stats li {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border-left: 5px solid #0077ff;
 }
