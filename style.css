@@ -231,7 +231,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f4f9ff;
+  
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 8px;
@@ -269,6 +269,11 @@ footer {
   #favoritesList .remove-btn {
     margin-top: 10px;
   }
+  nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 5px;
+  }
 }
 .filters{
   margin-bottom: 20px;
@@ -279,4 +284,11 @@ footer {
   background: var(--card-bg);
   color: var(--text-color);
   border-left: 5px solid #0077ff;
+}
+
+#profileForm{
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 15px;
 }
