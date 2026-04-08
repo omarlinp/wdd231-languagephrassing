@@ -151,6 +151,14 @@ button:hover {
   background: #005fcc;
 }
 
+/* Quiz Options */
+#options button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  text-align: left;
+}
+
 /* Footer */
 footer {
   background: #222;
